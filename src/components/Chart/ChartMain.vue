@@ -2,7 +2,7 @@
   <v-card width="500" class="mx-auto">
     <apexchart
       width="500"
-      type="line"
+      type="area"
       :options="options"
       :series="series"
     ></apexchart>
@@ -15,7 +15,7 @@ export default {
   components: {
     apexchart: VueApexCharts,
   },
-  data: function () {
+  data() {
     return {
       options: {
         chart: {

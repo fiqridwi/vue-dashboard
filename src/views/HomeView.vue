@@ -15,6 +15,19 @@
   </v-container>
 </template>
 
+<script>
+export default {
+  methods: {
+    mounted() {
+      // const response = await fetch("https://randomuser.me/api/");
+      // const data = await response.json();
+      console.log("test");
+      // this.news = data;
+    },
+  },
+};
+</script>
+
 <style scoped>
 h1 {
   font-size: 4rem;
