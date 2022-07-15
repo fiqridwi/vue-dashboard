@@ -18,7 +18,7 @@
           </v-list-item-icon>
 
           <v-list-item-content>
-            <a class="et" :href="'/dashboard/' + item.link">{{ item.title }}</a>
+            <a class="et" :href="item.link">{{ item.title }}</a>
           </v-list-item-content>
         </v-list-item>
       </v-list>

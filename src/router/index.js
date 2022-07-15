@@ -6,38 +6,59 @@ import DashboardChart from "../components/Dashboard/DashboardChart.vue";
 import DashboardTable from "../components/Dashboard/DashboardTable.vue";
 import DashboardMap from "../components/Dashboard/DashboardMap.vue";
 import DashboardUser from "../components/Dashboard/DashboardUser.vue";
+import i18n from "../i18n";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: HomeView,
+    redirect: `/${i18n.locale}`,
   },
   {
-    path: "/dashboard",
-    name: "dashboard",
-    component: DashboardView,
+    path: "/:lang",
+    component: {
+      render(c) {
+        return c("router-view");
+      },
+    },
     children: [
       {
-        path: "table",
-        component: DashboardTable,
+        path: "/",
+        name: "home",
+        component: HomeView,
       },
       {
-        path: "chart",
-        component: DashboardChart,
+        path: "login",
+        name: "login",
+        component: () => import("../views/LoginView.vue"),
       },
       {
-        path: "users",
-        component: DashboardUser,
-      },
-      {
-        path: "map",
-        component: DashboardMap,
+        path: "dashboard",
+        name: "dashboard",
+        component: DashboardView,
+        children: [
+          {
+            path: "table",
+            component: DashboardTable,
+          },
+          {
+            path: "chart",
+            component: DashboardChart,
+          },
+          {
+            path: "users",
+            component: DashboardUser,
+          },
+          {
+            path: "map",
+            component: DashboardMap,
+          },
+        ],
       },
     ],
   },
+
   // {
   //   path: "/about",
   //   name: "about",

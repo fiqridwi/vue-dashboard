@@ -2,7 +2,7 @@
 <template>
   <v-card>
     <v-card-title>
-      Nutrition
+      Hacker News
       <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
@@ -25,7 +25,7 @@
       :loading="isLoading"
       loading-text="Loading... Please wait"
     >
-      <!-- clikcable url     -->
+      <!-- clickable url     -->
       <template v-slot:[`item.url`]="{ item }">
         <a :href="item.url">{{ item.url }}</a>
       </template>
@@ -64,16 +64,15 @@ export default {
       isLoading: true,
       headers: [
         {
-          text: "Title",
+          text: this.$t("table.title"),
           align: "start",
           sortable: true,
           value: "title",
         },
-        { text: "Score", value: "score" },
-        { text: "Author", value: "by" },
-
+        { text: this.$t("table.score"), value: "score" },
+        { text: this.$t("table.author"), value: "by" },
         { text: "URL", value: "url" },
-        { text: "Created", value: "time" },
+        { text: this.$t("table.created"), value: "time" },
       ],
       page: 1,
       pageCount: 0,

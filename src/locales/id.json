@@ -1,0 +1,10 @@
+{
+    "message": "Halo i18n !!",
+    "home": "Pergi ke dasbor",
+    "table": {
+        "title": "Judul",
+        "score": "Skor",
+        "author": "Penulis",
+        "created": "Dibuat pada"
+    }
+}

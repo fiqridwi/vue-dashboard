@@ -9,11 +9,14 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn icon to="/dashboard/users">
+      <v-btn icon to="users">
         <v-icon>mdi-account</v-icon>
       </v-btn>
       <v-btn icon to="/">
         <v-icon>mdi-home</v-icon>
+      </v-btn>
+      <v-btn>
+        <LanguageSwitcher />
       </v-btn>
 
       <v-menu left bottom>
@@ -32,3 +35,12 @@
     </v-app-bar>
   </div>
 </template>
+
+<script>
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher.vue";
+export default {
+  components: {
+    LanguageSwitcher,
+  },
+};
+</script>

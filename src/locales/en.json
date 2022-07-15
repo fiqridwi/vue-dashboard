@@ -1,0 +1,10 @@
+{
+  "message": "Hello i18n !!",
+  "home": "Go to Dashboard",
+  "table": {
+    "title": "Title",
+    "score": "Score",
+    "author": "Author",
+    "created": "Created at"
+  }
+}

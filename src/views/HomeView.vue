@@ -1,28 +1,27 @@
 <template>
   <v-container class="text-center my-15">
     <h1>Dashboard App</h1>
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur
-      fuga, dolorem corrupti porro debitis magnam! Laudantium earum nobis
-      corporis perferendis facilis maiores, et, quam vero quo vel, libero hic
-      magnam.
-    </p>
+    <TextContainer />
     <div class="mx-auto">
-      <v-btn elevation="2" color="yellow" href="/dashboard/table"
-        >Go To Dashboard</v-btn
+      <v-btn
+        elevation="2"
+        color="yellow"
+        :to="`/${$i18n.locale}/dashboard/table`"
+        >{{ $t("home") }}</v-btn
       >
     </div>
   </v-container>
 </template>
 
 <script>
+import TextContainer from "@/components/TextContainer.vue";
 export default {
+  components: {
+    TextContainer,
+  },
   methods: {
     mounted() {
-      // const response = await fetch("https://randomuser.me/api/");
-      // const data = await response.json();
       console.log("test");
-      // this.news = data;
     },
   },
 };
