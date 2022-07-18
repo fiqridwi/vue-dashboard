@@ -107,6 +107,7 @@ export default {
         params: { lang: locale },
       });
       this.hideDropdown();
+      location.reload();
     },
   },
 };
