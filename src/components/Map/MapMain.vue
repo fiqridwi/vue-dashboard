@@ -2,6 +2,9 @@
   <div>
     <slot name="data"></slot>
     <hr />
-    <slot name="loading"> Loading..... </slot>
+
+    <slot name="loading"> </slot>
+    <hr />
+    <slot name="test"></slot>
   </div>
 </template>

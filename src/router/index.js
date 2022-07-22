@@ -6,6 +6,7 @@ import DashboardChart from "../components/Dashboard/DashboardChart.vue";
 import DashboardTable from "../components/Dashboard/DashboardTable.vue";
 import DashboardMap from "../components/Dashboard/DashboardMap.vue";
 import DashboardUser from "../components/Dashboard/DashboardUser.vue";
+import TablePotensiDesa from "../views/TablePotensiDesa.vue";
 import i18n from "../i18n";
 
 Vue.use(VueRouter);
@@ -53,6 +54,10 @@ const routes = [
           {
             path: "map",
             component: DashboardMap,
+          },
+          {
+            path: "podes",
+            component: TablePotensiDesa,
           },
         ],
       },

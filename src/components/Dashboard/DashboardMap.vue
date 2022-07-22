@@ -7,6 +7,9 @@
         <li>Coordinate</li>
       </ul>
       <div :slot="loading">Content</div>
+      <template #test>
+        <div>Map layer</div>
+      </template>
     </mapMain>
   </div>
 </template>
