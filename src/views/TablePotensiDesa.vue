@@ -9,19 +9,17 @@
         hide-details
       ></v-text-field>
     </v-card-title>
-    <v-data-table :headers="headers" :items="data" :search="search">
-      <template v-slot:[`item.object_id`]="{ item }">
-        <a :href="item.url">{{ item.object_id }}</a>
-      </template>
+    <v-data-table :headers="headers" :items="dataPotensi" :search="search">
     </v-data-table>
   </v-card>
 </template>
 <script>
-import potensiDesa from "../../potensiDesa";
 export default {
   data() {
     return {
       search: "",
+      loading: true,
+      firstLoad: true,
       headers: [
         {
           text: "ID",
@@ -40,20 +38,31 @@ export default {
         { text: "Updated at", value: "updated_at" },
         { text: "Updated by", value: "updated_by" },
       ],
-      data: potensiDesa,
+
+      dataPotensi: [],
     };
   },
   mounted() {
-    // console.log(this.data);
-    this.serveHeaders();
+    this.getData();
   },
   methods: {
     serveHeaders() {
-      for (let [key, value] of Object.entries(potensiDesa[0].data)) {
-        this.headers.push({ text: value.name, value: `data.${key}.value` });
-      }
-
-      console.log(this.headers);
+      this.dataPotensi.forEach((item) => {
+        for (let [key, value] of Object.entries(item.data)) {
+          this.headers.push({ text: value.name, value: `data.${key}.value` });
+        }
+      });
+    },
+    getData() {
+      fetch(
+        "https://1f42c6f0-9384-422d-9951-34a52a0c4274.mock.pstmn.io/api/potensi_desa?limit=&page=&sort=&filter_category=&filter_province=&filter_province=&filter_city=&filter_district=&filter_sub_district=&fields"
+      )
+        .then((response) => response.json())
+        .then((result) => {
+          this.dataPotensi = result.data;
+          // console.log(this.dataPotensi);
+        })
+        .then(() => this.serveHeaders());
     },
   },
 };

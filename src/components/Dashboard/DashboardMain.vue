@@ -1,12 +1,17 @@
 <template>
   <v-card class="nav" rounded="false">
-    <v-navigation-drawer fixed color="purple darken-2">
+    <v-navigation-drawer fixed color="purple darken-2" absolute>
       <v-list-item class="px-2">
         <v-list-item-avatar>
           <v-icon color="white">mdi-flash-outline</v-icon>
         </v-list-item-avatar>
 
         <v-list-item-title><h3>Admin</h3></v-list-item-title>
+        <v-list-item-title
+          ><v-btn width="10px" @click.stop="drawer = !drawer"
+            ><v-icon>mdi-menu</v-icon>
+          </v-btn></v-list-item-title
+        >
       </v-list-item>
 
       <v-divider></v-divider>
@@ -29,7 +34,7 @@
 export default {
   data() {
     return {
-      drawer: true,
+      drawer: null,
       items: [
         { title: "Table", link: "table", icon: "mdi-table" },
         { title: "Chart", link: "chart", icon: "mdi-poll" },
