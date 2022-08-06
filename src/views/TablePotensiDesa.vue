@@ -50,6 +50,7 @@ export default {
       this.dataPotensi.forEach((item) => {
         for (let [key, value] of Object.entries(item.data)) {
           this.headers.push({ text: value.name, value: `data.${key}.value` });
+          return;
         }
       });
     },
